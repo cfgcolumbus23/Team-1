@@ -5,3 +5,12 @@ from django.http import HttpResponse
 
 def testing(request):
     return HttpResponse("Testing")
+
+def see_intervention_plan(request):
+    return HttpResponse("Here goes the intervention plan")
+
+def greet_parent(request,name):
+    return HttpResponse(f"Hello, {name}")
+
+def FirstPage(request):
+    return render(request,"FirstPage.htlm")
