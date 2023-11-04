@@ -1,14 +1,17 @@
 from django.db import models
 
 # Create your models here.
-class Orgs(models.Model):
-    name = models.CharField(max_length=200)
-    location = models.CharField(max_length=500)
-    email = models.CharField(max_length=50)
-    phone = models.CharField(max_length=20)
+class user(models.Model):
+    id = models.IntegerField()
+    name = models.TextField()
+    email = models.TextField()
+    phone_number = models.CharField(max_length=20)
+    hash = models.TextField()
+    salt = models.TextField()
 
-class Inter(models.Model):
-    name = models.CharField(max_length=200)
-    specialty = models.CharField(max_length=200)
-    email = models.CharField(max_length=50)
-    phone = models.CharField(max_length=20)
+class roles(models.Model):
+    id = models.IntegerField()
+    desc = models.TextField()
+
+class reports(models.Model):
+    id = models.IntegerField()
