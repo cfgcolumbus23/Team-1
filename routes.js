@@ -11,13 +11,18 @@ const path = require("path");
 
 router.get("/", (req, res) => {
   res.send(
-    `Navigate to /FirstPage`
+    'Go to First page'
   );
 });
 
 router.get("/FirstPage", (req, res) => {
   res.sendFile(path.join(__dirname, "/views/FirstPage.html"));
 });
+
+router.get("/InterventionPage", (req, res) => {
+  res.sendFile(path.join(__dirname, "/views/InterventionPage.html"));
+});
+
 
 /*
 
