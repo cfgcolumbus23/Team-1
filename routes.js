@@ -19,15 +19,25 @@ router.get("/FirstPage", (req, res) => {
 });
 
 router.get("/account/:username", (req, res) => {
-    res.render("test", { username: newUser });
-  });
-
+  res.render("test", { username: newUser });
+});
 
 router.get("/displayUser/:id", (req, res) => {
   const id = parseInt(req.params.id);
   
   db.each('SELECT * FROM users WHERE id=?', [id], (err, row) => {
     res.render(path.join(__dirname, "/views/displayUser.ejs"), {user: JSON.stringify(row)});
+  });
+});
+
+router.get("/childReports/:user_id", (req, res) => {
+  const id = parseInt(req.params.user_id);
+  const rows = [];
+
+  db.each('SELECT * from reports WHERE parent_id = ?', [id], (err, row) => {
+    rows.push(row);
+  }, () => {
+    res.render(path.join(__dirname, "/views/displayUser.ejs"), {user: JSON.stringify(rows)});
   });
 })
 
