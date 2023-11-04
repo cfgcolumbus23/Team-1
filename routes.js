@@ -22,6 +22,16 @@ router.get("/InterventionPage", (req, res) => {
   res.sendFile(path.join(__dirname, "/views/InterventionPage.html"));
 });
 
+router.get("/childReports/:user_id", (req, res) => {
+  const id = parseInt(req.params.user_id);
+  const rows = [];
+
+  db.each('SELECT * from reports WHERE parent_id = ?', [id], (err, row) => {
+    rows.push(row);
+  }, () => {
+    res.render(path.join(__dirname, "/views/displayUser.ejs"), {user: JSON.stringify(rows)});
+  });
+})
 
 /*
 
