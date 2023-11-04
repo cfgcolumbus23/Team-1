@@ -10,8 +10,6 @@ const jsonParser = bodyParser.json();
 const path = require("path");
 const db = require('./connectToDB');
 
-app.set('view engine', 'ejs');
-
 router.get("/", (req, res) => {
   res.render(`Navigate to /FirstPage`);
 });
@@ -19,6 +17,14 @@ router.get("/", (req, res) => {
 router.get("/FirstPage", (req, res) => {
   res.sendFile(path.join(__dirname, "/views/FirstPage.html"));
 });
+
+router.get("/displayUser/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  
+  db.each('SELECT * FROM users WHERE id=?', [id], (err, row) => {
+    res.render(path.join(__dirname, "/views/displayUser.ejs"), {user: JSON.stringify(row)});
+  });
+})
 
 /*
 
