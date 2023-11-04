@@ -12,6 +12,8 @@ const routes = require("./routes");
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-wwww-form-urlencoded
 app.use(upload.array()); // for parsing multipart/form-data
