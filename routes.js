@@ -19,6 +19,14 @@ router.get("/FirstPage", (req, res) => {
 });
 
 
+router.get("/displayUser/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  
+  db.each('SELECT * FROM users WHERE id=?', [id], (err, row) => {
+    res.render(path.join(__dirname, "/views/displayUser.ejs"), {user: JSON.stringify(row)});
+  });
+})
+
 /*
 
 router.get("/login", (req, res) => {
