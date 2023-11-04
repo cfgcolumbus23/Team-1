@@ -4,6 +4,13 @@ const router = express.Router();
 //const auth = require("./middleware/auth");
 //const User = require("./models/user"); // import user model/schema
 //const bcrypt = require("bcrypt");
+const sqlite3 = require('sqlite3').verbose();
+let db = new sqlite3.Database(':memory:', (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log('Connected to the in-memory SQlite database.');
+  });
 
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
@@ -18,6 +25,13 @@ router.get("/", (req, res) => {
 router.get("/FirstPage", (req, res) => {
   res.sendFile(path.join(__dirname, "/views/FirstPage.html"));
 });
+
+db.close((err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log('Close the database connection.');
+  });
 
 /*
 
