@@ -7,7 +7,20 @@ const db = new sqlite3.Database('./hackathon2.db', sqlite3.OPEN_READWRITE, (err)
   console.log('Connected to database.');
 });
 
-export default db;
+let sql = `SELECT Email email, Name name FROM users WHERE name = John`;
+//let playlistId = 1;
+
+// first row only
+db.all(sql, [], (err, rows) => {
+  if (err) {
+    throw err;
+  }
+  rows.forEach((row) => {
+    console.log(row.name);
+  });
+});
+
+module.exports = db;
 
 /*
 db.close((err) => {
