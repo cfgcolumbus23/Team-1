@@ -8,11 +8,12 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const path = require("path");
+const db = require('./connectToDB');
+
+app.set('view engine', 'ejs');
 
 router.get("/", (req, res) => {
-  res.send(
-    `Navigate to /FirstPage`
-  );
+  res.render(`Navigate to /FirstPage`);
 });
 
 router.get("/FirstPage", (req, res) => {
