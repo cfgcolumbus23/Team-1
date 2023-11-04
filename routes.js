@@ -18,10 +18,6 @@ router.get("/FirstPage", (req, res) => {
   res.sendFile(path.join(__dirname, "/views/FirstPage.html"));
 });
 
-router.get("/account/:username", (req, res) => {
-    res.render("test", { username: newUser });
-  });
-
 
 /*
 
