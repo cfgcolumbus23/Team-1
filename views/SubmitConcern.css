@@ -50,3 +50,8 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 18px;
 }
+.button{
+    background-color: red;
+    padding: 10px 10 px;
+    font-size: 20px;
+  }
