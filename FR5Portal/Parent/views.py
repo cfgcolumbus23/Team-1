@@ -12,5 +12,7 @@ def see_intervention_plan(request):
 def greet_parent(request,name):
     return HttpResponse(f"Hello, {name}")
 
-def FirstPage(request):
-    return render(request,"FirstPage.htlm")
+def FirstPage(request, name):
+    return render(request,"FirstPage.html", {
+        "name": name.capitalize()
+    })
