@@ -18,6 +18,12 @@ router.get("/FirstPage", (req, res) => {
   res.sendFile(path.join(__dirname, "/views/FirstPage.html"));
 });
 
+router.get("/InterventionPage", (req, res) => {
+  res.sendFile(path.join(__dirname, "/views/InterventionPage.html"));
+});
+
+
+/*
 
 router.get("/displayUser/:id", (req, res) => {
   const id = parseInt(req.params.id);
@@ -25,6 +31,6 @@ router.get("/displayUser/:id", (req, res) => {
   db.each('SELECT * FROM users WHERE id=?', [id], (err, row) => {
     res.render(path.join(__dirname, "/views/displayUser.ejs"), {user: JSON.stringify(row)});
   });
-})
+})*/
 
 module.exports = router;
