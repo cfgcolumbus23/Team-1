@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
 const upload = multer();
-//const db = require("./config/db"); // import database connection from config/db.js
+const db = require("./connectToDB"); // import database connection from config/db.js
 //const User = require("./models/user"); // import user model/schema
 const routes = require("./routes");
 

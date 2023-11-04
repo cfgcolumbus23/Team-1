@@ -5,15 +5,6 @@ const router = express.Router();
 //const User = require("./models/user"); // import user model/schema
 //const bcrypt = require("bcrypt");
 
-const sqlite3 = require('sqlite3').verbose();
-
-const db = new sqlite3.Database('./hackathon2.db', sqlite3.OPEN_READWRITE, (err) => {
-  if (err) {
-    console.error(err.message);
-  }
-  console.log('Connected to database.');
-});
-
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const path = require("path");
@@ -27,13 +18,6 @@ router.get("/", (req, res) => {
 router.get("/FirstPage", (req, res) => {
   res.sendFile(path.join(__dirname, "/views/FirstPage.html"));
 });
-
-db.close((err) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    console.log('Close the database connection.');
-  });
 
 /*
 
