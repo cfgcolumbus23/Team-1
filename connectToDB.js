@@ -7,6 +7,8 @@ const db = new sqlite3.Database('./hackathon2.db', sqlite3.OPEN_READWRITE, (err)
   console.log('Connected to database.');
 });
 
+export default db;
+
 /*
 db.close((err) => {
     if (err) {
