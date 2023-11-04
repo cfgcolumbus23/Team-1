@@ -5,12 +5,14 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
 const upload = multer();
-//const db = require("./config/db"); // import database connection from config/db.js
+const db = require("./connectToDB"); // import database connection from config/db.js
 //const User = require("./models/user"); // import user model/schema
 const routes = require("./routes");
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-wwww-form-urlencoded
