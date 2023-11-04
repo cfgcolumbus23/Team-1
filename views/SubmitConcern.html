@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="SubmitConcern.css">
+    <img src="https://futurereadyfive.org/wp-content/uploads/2022/08/FR5-horizontal-logo.png">
+    <title>Submit Concern</title>
+</head>
+<body>
+    <h1>Feedback Form</h1>
+    <form action="process_feedback.php" method="post">
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit Feedback">
+        </div>
+    </form>
+</body>
+</html>
